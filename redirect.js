@@ -1,7 +1,3 @@
-// Import necessary modules
-const { send } = require('@vercel/node');
-
-// Define the serverless function
 module.exports = (req, res) => {
   // Check if 'url' parameter is provided in the query string
   if (req.query.url) {
@@ -13,6 +9,6 @@ module.exports = (req, res) => {
     res.end();
   } else {
     // Handle case when 'url' parameter is not provided
-    send(res, 400, 'Invalid request');
+    res.status(400).send('Invalid request');
   }
 };
